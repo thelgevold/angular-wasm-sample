@@ -1,0 +1,1 @@
+build --define=angular_ivy_enabled=True

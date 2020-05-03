@@ -1,0 +1,18 @@
+<html>
+
+<head>
+  <title>WebAssembly Demo</title>
+  <script src="/wasm/friends.js"></script>
+  <script>
+    Module.onRuntimeInitialized = () => {
+      window.ready = true;
+    };
+  </script>
+</head>
+
+<body>
+  <app-root></app-root>
+</body>
+<script src="/bundle-es2015.min/index.js"></script>
+
+</html>

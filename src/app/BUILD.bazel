@@ -1,0 +1,92 @@
+load("@npm_angular_bazel//:index.bzl", "ng_module")
+load("@npm_bazel_rollup//:index.bzl", "rollup_bundle")
+load("@npm_bazel_terser//:index.bzl", "terser_minified")
+load("@npm//@babel/cli:index.bzl", "babel")
+load("@npm_bazel_typescript//:index.bzl", "ts_library")
+load("@build_bazel_rules_nodejs//:index.bzl", "nodejs_binary")
+
+ng_module(
+    name = "app",
+    srcs = [
+        "main.ts",
+        "app.module.ts",
+        "app.component.ts",
+        "friends-list.component.ts"
+    ],
+    tsconfig = ":tsconfig.json",
+    deps = [
+        "@npm//@angular/core",
+        "@npm//@angular/elements",
+        "@npm//@angular/platform-browser"
+    ],
+)
+
+rollup_bundle(
+    name = "bundle-es2015",
+    config_file = "rollup.config.js",
+    entry_points = {
+        ":main.ts": "index",
+    },
+    output_dir = True,
+    deps = [
+        ":app",
+        "@npm//rollup-plugin-commonjs",
+        "@npm//rollup-plugin-node-resolve",
+    ],
+)
+
+babel(
+    name = "bundle-es5",
+    args = [
+        "$(execpath :bundle-es2015)",
+        "--no-babelrc",
+        "--source-maps",
+        "--presets=@babel/preset-env",
+        "--out-dir",
+        "$(@D)",
+    ],
+    data = [
+        ":bundle-es2015",
+        "@npm//@babel/preset-env",
+    ],
+    output_dir = True,
+)
+
+terser_minified(
+    name = "bundle-es2015.min",
+    src = ":bundle-es2015",
+)
+
+ts_library(
+    name = "server_ts",
+    srcs = ["server.ts"],
+    tsconfig = ":tsconfig.json",
+    deps = [
+            "@npm//@types/node",
+            "@npm//express",
+            "@npm//compression"
+    ],
+    data = [
+      
+    ]
+)
+
+filegroup(
+    name = "server_js",
+    srcs = ["server_ts"],
+    output_group = "es5_sources",
+)
+
+nodejs_binary(
+    name = "server", 
+    data = [
+            ":server_js", 
+            "@npm//express",
+            "@npm//compression",
+            ":bundle-es2015.min",
+            ":index.html",
+            "wasm/friends.js",
+            "wasm/friends.wasm",
+    ],
+    entry_point = "server_js",
+)

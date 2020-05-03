@@ -1,0 +1,6 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary")
+
+cc_library(
+    name = "sort.js",
+    srcs = ["sort.cpp"]
+)
