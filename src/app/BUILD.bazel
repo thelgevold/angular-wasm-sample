@@ -17,7 +17,8 @@ ng_module(
     deps = [
         "@npm//@angular/core",
         "@npm//@angular/elements",
-        "@npm//@angular/platform-browser"
+        "@npm//@angular/platform-browser",
+        "@npm//msgpack5"
     ],
 )
 
@@ -77,16 +78,25 @@ filegroup(
     output_group = "es5_sources",
 )
 
+genrule(
+    name = "msgpack",
+    srcs = ["//:node_modules/msgpack5/dist/msgpack5.min.js"],
+    outs = ["msgpack5.min.js"],
+    cmd = "cp $< $@",
+)
+
 nodejs_binary(
     name = "server", 
     data = [
             ":server_js", 
             "@npm//express",
             "@npm//compression",
-            ":bundle-es2015.min",
+            #":bundle-es2015.min",
+            ":bundle-es2015",
             ":index.html",
             "wasm/friends.js",
             "wasm/friends.wasm",
+            ":msgpack"
     ],
     entry_point = "server_js",
 )
