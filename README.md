@@ -8,4 +8,8 @@ Instructions:
 
 4) yarn start
 
-Blog post: https://www.syntaxsuccess.com/viewarticle/using-webassembly-with-web-components
+Blog posts: 
+
+https://www.syntaxsuccess.com/viewarticle/using-webassembly-with-web-components
+
+https://www.syntaxsuccess.com/pre-render/sharing-complex-types-between-c++-webassembly-and-javascript
