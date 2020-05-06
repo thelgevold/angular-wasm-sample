@@ -4,8 +4,10 @@ emcc \
       -s EXTRA_EXPORTED_RUNTIME_METHODS='["cwrap", "setValue", "getValue"]' \
       -s ALLOW_MEMORY_GROWTH=1 \
       -s EXPORTED_FUNCTIONS="['_show_friends', '_malloc', '_get_address', '_free', '_add_numbers']" \
-      src/friend/show-friends.cpp \
-      src/friend/friend.cpp \
-      src/friend/friends.cpp \
+      src/modules/friends/show-friends.cpp \
+      src/modules/friends/friend.cpp \
+      src/modules/friends/friends.cpp \
+      src/modules/get-address.cpp \
+      src/modules/add-numbers.cpp \
       -I/Users/torgeirhelgevold/development/msgpack-c/include \
-      -o src/app/wasm/friends.js
+      -o src/app/wasm/wasm-module.js
