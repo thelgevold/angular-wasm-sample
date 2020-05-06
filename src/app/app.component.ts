@@ -28,6 +28,8 @@ export class AppComponent {
     this.person = this.getAddress();
 
     this.result = this.add(this.expression);
+
+    this.getCars();
   }
 
   getAddress() {
@@ -66,5 +68,10 @@ export class AppComponent {
     Module._free(bufferSize);
 
     return result;
+  }
+
+  getCars() {
+    const getCars = Module.cwrap("get_cars");
+    getCars();
   }
 }

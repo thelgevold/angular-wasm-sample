@@ -7,5 +7,9 @@ app.use(compression());
 
 app.use('/', express.static('./src/app'));
 
+app.get('/cars', async (req, res) => {
+  res.json(['BMW', 'Ferrari']);
+});
+
 const port = process.env.PORT || 3000;
-app.listen(port, () => console.log(`Example app listening on port ${port}`));
+app.listen(port, () => console.log(`Server listening on port ${port}`));
