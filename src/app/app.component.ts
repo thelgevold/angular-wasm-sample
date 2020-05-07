@@ -57,8 +57,6 @@ export class AppComponent {
 
     var bufferSize = Module._malloc(encoded.length);
 
-    Module.setValue(bufferSize, encoded, "i8");
-
     var bytes_per_element = encoded.BYTES_PER_ELEMENT;
     Module.HEAP8.set(encoded, bufferSize / bytes_per_element);
 
