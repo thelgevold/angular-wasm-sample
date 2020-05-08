@@ -18,7 +18,8 @@ ng_module(
         "@npm//@angular/core",
         "@npm//@angular/elements",
         "@npm//@angular/platform-browser",
-        "@npm//msgpack5"
+        "@npm//msgpack5",
+        "//src/model:person"
     ],
 )
 

@@ -1,0 +1,18 @@
+package(default_visibility = ["//visibility:public"])
+
+load("@npm_bazel_labs//:index.bzl", "ts_proto_library")
+
+proto_library(
+    name = "person_proto",
+    srcs = ["person.proto"],
+)
+
+cc_proto_library(
+    name = "person_cc_proto",
+    deps = [":person_proto"]
+)
+
+ts_proto_library(
+    name = "person",
+    proto = ":person_proto",
+)

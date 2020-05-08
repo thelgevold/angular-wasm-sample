@@ -1,7 +1,8 @@
 {
   "scripts": {
     "postinstall": "ngcc",
-    "start": "./build.sh && ibazel run //src/app:server"
+    "start": "./build.sh && ibazel run //src/app:server",
+    "proto": "bazel build //src/model:person_cc_proto"
   },
   "dependencies": {
     "@angular/animations": "9.1.0",
@@ -20,7 +21,9 @@
     "tslib": "1.10.0",
     "express": "4.17.1",
     "compression": "1.7.2",
-    "msgpack5": "4.2.1"
+    "msgpack5": "4.2.1",
+    "protobufjs": "5.0.3",
+    "grpc-web": "1.0.7"
   },
   "devDependencies": {
     "@angular/bazel": "9.0.0",
@@ -31,6 +34,7 @@
     "@babel/core": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
     "@bazel/bazelisk": "^1.4.0",
+    "@bazel/labs": "^1.6.0",
     "@bazel/benchmark-runner": "^0.1.0",
     "@bazel/buildifier": "^2.2.1",
     "@bazel/ibazel": "0.11.1",
