@@ -3,18 +3,12 @@ workspace(name = "friends", managed_directories = {"@npm": ["node_modules"]},)
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 http_archive(
-    name = "com_google_protobuf",
-    sha256 = "a79d19dcdf9139fa4b81206e318e33d245c4c9da1ffed21c87288ed4380426f9",
-    strip_prefix = "protobuf-3.11.4",
-    urls = ["https://github.com/protocolbuffers/protobuf/archive/v3.11.4.tar.gz"],
-)
-
-http_archive(
-    name = "rules_proto",
-    sha256 = "4d421d51f9ecfe9bf96ab23b55c6f2b809cbaf0eea24952683e397decfbd0dd0",
-    strip_prefix = "rules_proto-f6b8d89b90a7956f6782a4a3609b2f0eee3ce965",
+    name = "io_bazel_rules_sass",
+    sha256 = "77e241148f26d5dbb98f96fe0029d8f221c6cb75edbb83e781e08ac7f5322c5f",
+    strip_prefix = "rules_sass-1.24.0",
     urls = [
-        "https://github.com/bazelbuild/rules_proto/archive/f6b8d89b90a7956f6782a4a3609b2f0eee3ce965.tar.gz",
+        "https://github.com/bazelbuild/rules_sass/archive/1.24.0.zip",
+        "https://mirror.bazel.build/github.com/bazelbuild/rules_sass/archive/1.24.0.zip",
     ],
 )
 
@@ -40,15 +34,6 @@ load("@npm_bazel_typescript//:index.bzl", "ts_setup_workspace")
 
 ts_setup_workspace()
 
-load("@rules_proto//proto:repositories.bzl", "rules_proto_dependencies", "rules_proto_toolchains")
+load("@io_bazel_rules_sass//sass:sass_repositories.bzl", "sass_repositories")
 
-rules_proto_dependencies()
-rules_proto_toolchains()
-
-load("@com_google_protobuf//:protobuf_deps.bzl", "protobuf_deps")
-
-protobuf_deps()
-
-load("@npm_bazel_labs//:package.bzl", "npm_bazel_labs_dependencies")
-
-npm_bazel_labs_dependencies()
+sass_repositories()

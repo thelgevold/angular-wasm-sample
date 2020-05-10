@@ -1,8 +1,7 @@
 {
   "scripts": {
     "postinstall": "ngcc",
-    "start": "./build.sh && ibazel run //src/app:server",
-    "proto": "bazel build //src/model:person_cc_proto"
+    "start": "./build.sh && ibazel run //src/app:server"
   },
   "dependencies": {
     "@angular/animations": "9.1.0",

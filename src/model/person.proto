@@ -1,8 +1,0 @@
-syntax = "proto3";
-
-package Proto;
-
-message Person {
-  string name = 1;
-  string address = 2;
-}
