@@ -1,14 +1,14 @@
-import {Column} from './column';
+import { Cell } from './cell';
 
-export class Row{
+export class Row {
 
-    columns:Array<Column>;
+  cells: Array<Cell>;
 
-    constructor(public rowIndex, public columnCount){
-        this.columns = [];
+  constructor(public rowIndex, public columnCount) {
+    this.cells = [];
 
-        for(let j = 0; j < this.columnCount; j++){
-            this.columns.push(new Column(j,this.rowIndex));
-        }
+    for (let j = 0; j < this.columnCount; j++) {
+      this.cells.push(new Cell(j, this.rowIndex));
     }
+  }
 }

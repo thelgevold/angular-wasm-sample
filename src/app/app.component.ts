@@ -7,6 +7,9 @@ declare const Module: any;
 @Component({
   selector: 'app-root',
   template: `
+    <h5>Spreadsheet</h5>
+    <spreadsheet></spreadsheet>
+
     <h5>Address</h5>
     <div> {{ person.firstName }} {{ person.lastName }}</div>
     <div> {{ person.street }} </div>

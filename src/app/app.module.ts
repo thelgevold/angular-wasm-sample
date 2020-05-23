@@ -3,6 +3,7 @@ import { FriendListComponent } from './friends-list.component';
 import { NgModule, Injector, APP_INITIALIZER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
+import { SpreadsheetModule } from './spreadsheet/spreadsheet.module';
 
 declare const window: any;
 
@@ -11,7 +12,7 @@ declare const window: any;
     FriendListComponent,
     AppComponent
   ],
-  imports: [BrowserModule],
+  imports: [BrowserModule, SpreadsheetModule],
   providers: [
     {
       provide: APP_INITIALIZER,

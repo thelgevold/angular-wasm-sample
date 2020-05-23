@@ -3,6 +3,8 @@
 <head>
   <title>WebAssembly Demo</title>
   <script src="/wasm/wasm-module.js"></script>
+  <script src="/zone.min.js"></script>
+
   <script>
     Module.onRuntimeInitialized = () => {
       window.ready = true;
@@ -19,6 +21,6 @@
   <app-root></app-root>
 </body>
 <script src="/msgpack5.min.js"></script>
-<script src="/bundle-es2015.min/index.js"></script>
+<script src="/bundle-es2015/index.js"></script>
 
 </html>

@@ -1,1 +1,1 @@
-exports_files(["node_modules/msgpack5/dist/msgpack5.min.js", "tsconfig.json"])
+exports_files(["node_modules/msgpack5/dist/msgpack5.min.js", "tsconfig.json", "node_modules/zone.js/dist/zone.min.js"])
