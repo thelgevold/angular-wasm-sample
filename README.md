@@ -13,3 +13,5 @@ Blog posts:
 https://www.syntaxsuccess.com/viewarticle/using-webassembly-with-web-components
 
 https://www.syntaxsuccess.com/viewarticle/sharing-complex-types-between-c++-webassembly-and-javascript
+
+https://www.syntaxsuccess.com/viewarticle/multi-threading-with-webassembly
